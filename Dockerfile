@@ -1,7 +1,15 @@
-FROM docker:dind
+FROM docker:latest
 
 LABEL maintainer="Andrey Voronkov <avoronkov@enapter.com>"
 
 RUN set -x \
-  && apk --no-cache add python python-dev py-pip build-base libffi-dev openssl-dev libgcc \
-  && pip install docker-compose
+    && apk --no-cache add \
+        bash \
+        build-base \
+        libffi-dev \
+        libgcc \
+        openssl-dev \
+        py-pip \
+        python \
+        python-dev \
+    && pip install docker-compose
